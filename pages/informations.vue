@@ -24,6 +24,7 @@
         v-model="zipcode_car"
         name="zipcode_car"
         label="CEP de onde seu carro dorme:"
+        mask="['#####-###']"
         light
         flat
         class="mb-5"

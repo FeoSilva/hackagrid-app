@@ -17,7 +17,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: 'Descubra quantas palavras você sabe em inglês.', //process.env.npm_package_description || '',
+        content: 'description.', //process.env.npm_package_description || '',
       },
     ],
     link: [

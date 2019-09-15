@@ -34,7 +34,8 @@
     "nuxt": "^2.0.0",
     "nuxt-fontawesome": "^0.4.0",
     "vue-analytics-facebook-pixel": "^1.0.1",
-    "vue-sweetalert2": "^2.1.1"
+    "vue-sweetalert2": "^2.1.1",
+    "vue-the-mask": "^0.11.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^0.0.1",
