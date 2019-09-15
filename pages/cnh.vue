@@ -99,7 +99,7 @@ export default {
           rg: this.rg,
           register_number_cnh: this.register_number_cnh,
         });
-        console.log('opa');
+        this.$router.push('/car-board');
       }
       if (this.OCRSuccess) {
         this.$router.push('/car-board');

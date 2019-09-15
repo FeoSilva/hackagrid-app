@@ -17,7 +17,7 @@ export default {
   actions: {
     validate(context, car_board) {
       let baseURLOCR = 'https://gateway.gr1d.io/sandbox/infocar/codificacao/v1';
-      let key = 'e58a4197-fd3d-44f0-bd71-b96a40201ef4';
+      let key = '853445c4-c782-4a16-94b0-66e692c0ef09';
 
       Axios.post(
         baseURLOCR + '/INFOCAR_CODIFICACAO',
@@ -34,15 +34,19 @@ export default {
             'Content-Type': 'application/json',
           },
         }
-      ).then(result => {
-        let CarData = _.get(
-          result.data,
-          'soap:Envelope.soap:Body.CodificacaoFIPEResponse.CodificacaoFIPEResponse.CodificacaoFIPEResult.RESPOSTA.INFOCAR_CODIFICACAO_XML',
-          {}
-        );
-        context.commit('setCar', CarData);
-        this.$router.push('/data-confirm');
-      });
+      )
+        .then(result => {
+          let CarData = _.get(
+            result.data,
+            'soap:Envelope.soap:Body.CodificacaoFIPEResponse.CodificacaoFIPEResponse.CodificacaoFIPEResult.RESPOSTA.INFOCAR_CODIFICACAO_XML',
+            {}
+          );
+          context.commit('setCar', CarData);
+          this.$router.push('/confirm-car');
+        })
+        .catch(err => {
+          this.$router.push('/confirm-car');
+        });
     },
   },
   getters: {},

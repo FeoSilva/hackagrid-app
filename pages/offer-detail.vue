@@ -8,21 +8,28 @@
     <div class="header-offer">
       <img src="@/static/logo-white.png" height="48" class="mt-3" />
       <div class="detail">
-        <div class="title">Seguro automotivo</div>
+        <div class="title">Seguro Automotivo</div>
         <div style="display: flex;">
           <div style="flex-grow: 1;">
-            <div class="vacancies">10/20</div>
+            <div class="vacancies">
+              {{ (offer.limit || 50) - offer.vacancies || 22 }}/{{
+                offer.limit || 50
+              }}
+            </div>
             <div class="people-per-group">pessoas no grupo</div>
           </div>
           <div style="flex-grow: 1;">
-            <div class="price"><span class="prefix">R$</span> 1000,00</div>
+            <div class="price">
+              <span class="prefix">R$</span>
+              {{ fixPrice(offer.price) || '144,55' }}
+            </div>
             <div class="frequency">mensal</div>
           </div>
         </div>
         <div class="mt-3" style="display: flex">
           <div style="flex-grow: 1">
             <div class="remaining">Faltam:</div>
-            <div class="time-to-finish">00h00m</div>
+            <div class="time-to-finish">12h27m</div>
             <div class="to-close">para fechar</div>
           </div>
           <div style="flex-grow: 1; text-align: right">
@@ -72,10 +79,28 @@
 </template>
 
 <script>
+import _ from 'lodash';
 export default {
+  data() {
+    return {
+      offer: null,
+    };
+  },
+  created() {
+    this.offer = _.get(this.$route, 'query.offer', {
+      limit: 50,
+      price: 'R$ 554,33',
+      vacancies: 1,
+    });
+  },
   methods: {
     next() {
-      this.$router.push('/finished');
+      this.$router.push('/finished', {
+        offer: this.offer,
+      });
+    },
+    fixPrice(price = '') {
+      return price.replace('R$ ', '');
     },
   },
 };

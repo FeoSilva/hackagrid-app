@@ -9,11 +9,7 @@
     <div class="text mt-5 mb-4">
       Precisamos de algumas informações para oferecer a melhor opção para você!
     </div>
-    <form
-      element-loading="loading"
-      style="width: 100%;"
-      @submit.prevent="onSubmit"
-    >
+    <form element-loading="loading" style="width: 100%;">
       <v-text-field
         v-model="car_board"
         name="car_board"
@@ -33,6 +29,9 @@
         Fechar
       </v-btn>
     </v-snackbar>
+    <v-overlay :value="loading">
+      <v-progress-circular indeterminate size="64"></v-progress-circular>
+    </v-overlay>
   </v-container>
 </template>
 
@@ -47,6 +46,7 @@ export default {
     return {
       snackbar: false,
       car_board: null,
+      loading: false,
     };
   },
   methods: {
@@ -55,7 +55,11 @@ export default {
         this.snackbar = true;
         return;
       }
-      this.$store.dispatch('car-board/validate', { car_board: this.car_board });
+      this.loading = true;
+      this.$store.dispatch('car_board/validate', { car_board: this.car_board });
+      setTimeout(() => {
+        this.loading = false;
+      }, 6000);
     },
   },
 };

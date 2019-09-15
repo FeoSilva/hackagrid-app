@@ -6,12 +6,12 @@
     wrap
   >
     <Header />
-    <div style="height: 100%;"></div>
+    <div style="height: 150px"></div>
     <div class="text mt-5 mb-4">
       Renan, seu carro é:
     </div>
-    <div style="width: 100%;">
-      <div class="car-name">Kia Picanto xyz</div>
+    <div style="width: 100%;     height: 250px;">
+      <div class="car-name">Kia Picanto v1.4 LSI AUT</div>
       Cor prata<br />
       2011/12<br />
       Gasolina

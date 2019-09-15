@@ -35,7 +35,7 @@
     <v-layout wrap column>
       <div class="mx-4 mt-4 mb-4">
         <div class="title">Você está participando</div>
-        <InsuranceConfirmed />
+        <InsuranceConfirmed :offer="offer" />
       </div>
 
       <div class="mx-4 mt-4 mb-4">
@@ -52,15 +52,27 @@
 import Header from '@/components/Header';
 import OfferCard from '@/components/OfferCard';
 import InsuranceConfirmed from '@/components/InsuranceConfirmed';
-
+import _ from 'lodash';
 export default {
   components: {
     Header,
     OfferCard,
     InsuranceConfirmed,
   },
+  data() {
+    return {
+      offer: null,
+    };
+  },
   computed: {},
-  created() {},
+  created() {
+    console.log(this.$route);
+    this.offer = _.get(this.$route, 'query.offer', {
+      limit: 50,
+      price: 'R$ 554,33',
+      vacancies: 1,
+    });
+  },
   methods: {},
 };
 </script>
