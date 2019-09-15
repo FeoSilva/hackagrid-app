@@ -1,12 +1,10 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
-import { Flux } from './screens/SignIn/signin.routes';
-import LoggedBottomBarRoutes from './screens/BottomBar/logged_bottom_bar.routes';
-import BiometricPromptScreen from './screens/SignIn/BiometricPrompt/BiometricPromptScreen';
+import { SignInScreen } from './screens/SignIn/signin.routes';
 
 console.disableYellowBox = true;
 
 const Routes = (userLogged = false) => {
-  let initialRouteName = 'SignIn';
+  let initialRouteName = 'SignInScreen';
   if (userLogged) {
     initialRouteName = 'Logged';
   }
@@ -15,10 +13,6 @@ const Routes = (userLogged = false) => {
     createSwitchNavigator(
       {
         SignIn: SignInScreen,
-        Logged: LoggedBottomBarRoutes,
-        BiometricPrompt: {
-          screen: BiometricPromptScreen,
-        },
       },
       {
         initialRouteName,

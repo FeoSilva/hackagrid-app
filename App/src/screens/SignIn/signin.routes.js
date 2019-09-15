@@ -1,5 +1,6 @@
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 import SignInScreen from './SignInScreen';
+
 
 export default createStackNavigator(
     {
@@ -14,7 +15,7 @@ export default createStackNavigator(
       },
     },
     {
-      initialRouteName: SignIn,
+      initialRouteName: 'SignIn',
       headerMode: 'screen',
     },
   );
