@@ -4,6 +4,6 @@ export default class SignInScreen {
     state = {};
 
     render() {
-        <View></View>
+        <View>opa</View>
     }
 }
