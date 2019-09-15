@@ -28,11 +28,16 @@
           rounded
           style="width: 100%;"
           @click="$router.push('/cnh')"
-          >Fazer seguro</v-btn
+          >Fazer outro seguro</v-btn
         >
       </v-layout>
     </div>
     <v-layout wrap column>
+      <div class="mx-4 mt-4 mb-4">
+        <div class="title">Você está participando</div>
+        <InsuranceConfirmed />
+      </div>
+
       <div class="mx-4 mt-4 mb-4">
         <div class="title">Acontencendo agora</div>
         <div class="subtitle">Acompanhe nossas opções de cotas</div>
@@ -46,11 +51,13 @@
 <script>
 import Header from '@/components/Header';
 import OfferCard from '@/components/OfferCard';
+import InsuranceConfirmed from '@/components/InsuranceConfirmed';
 
 export default {
   components: {
     Header,
     OfferCard,
+    InsuranceConfirmed,
   },
   computed: {},
   created() {},
