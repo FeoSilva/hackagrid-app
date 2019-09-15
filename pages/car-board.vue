@@ -56,7 +56,6 @@ export default {
         return;
       }
       this.$store.dispatch('car-board/validate', { car_board: this.car_board });
-      this.$router.push('/data-confirm');
     },
   },
 };

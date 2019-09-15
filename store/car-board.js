@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import _ from 'lodash';
 
 export default {
   data() {
@@ -6,11 +7,11 @@ export default {
   },
   namespaced: true,
   state: {
-    cnh: null,
+    car: null,
   },
   mutations: {
-    setCNH(state, cnh) {
-      state.cnh = cnh;
+    setCar(state, car) {
+      state.car = car;
     },
   },
   actions: {
@@ -34,7 +35,13 @@ export default {
           },
         }
       ).then(result => {
-        console.log(result);
+        let CarData = _.get(
+          result.data,
+          'soap:Envelope.soap:Body.CodificacaoFIPEResponse.CodificacaoFIPEResponse.CodificacaoFIPEResult.RESPOSTA.INFOCAR_CODIFICACAO_XML',
+          {}
+        );
+        context.commit('setCar', CarData);
+        this.$router.push('/data-confirm');
       });
     },
   },
