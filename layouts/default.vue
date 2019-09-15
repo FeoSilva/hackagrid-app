@@ -1,0 +1,22 @@
+<template>
+  <v-app>
+    <v-content>
+      <nuxt />
+    </v-content>
+  </v-app>
+</template>
+
+<script>
+export default {
+  data() {
+    return {};
+  },
+};
+</script>
+
+<style lang="scss">
+html,
+* {
+  font-family: 'Roboto', sans-serif;
+}
+</style>
