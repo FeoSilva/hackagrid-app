@@ -21,7 +21,6 @@
         <v-btn
           color="#F16A34"
           dark
-          flat
           style="width: 100px; height: 32px; border-radius: 12px;"
           >Entrar</v-btn
         >

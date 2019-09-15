@@ -121,5 +121,6 @@ export default {
   env: {
     SOCIUS_API_URL:
       process.env.SOCIUS_API_URL || `http://${ip.address()}:8200/v1`,
+    INFOCAR_CNH: process.env.INFOCAR_CNH || '',
   },
 };

@@ -10,15 +10,49 @@
       </v-flex>
       <v-flex xs12 sm8 md4>
         <form @submit.prevent="onSubmit">
-          <v-flex
+          <v-text-field
+            v-model="email"
+            name="email"
+            label="Email"
+            type="email"
+            light
+            flat
+            solo
+            style="opacity: 0.95;"
+            class="mb-2"
+            hide-details=""
+          ></v-text-field>
+          <v-text-field
+            v-model="password"
+            name="password"
+            label="Senha"
+            type="password"
+            light
+            flat
+            solo
+            style="opacity: 0.95;"
+            hide-details=""
+            class="mb-2"
+          ></v-text-field>
+          <v-btn
+            type="submit"
+            color="#7CB342"
+            dark
+            style="width: 100%; height: 44px;"
+          >
+            Login
+          </v-btn>
+
+          <v-flex class="mt-5"
             ><v-btn
               color="primary"
               depressed
               type="submit"
-              style="width: 100%; height: 66px;"
+              style="width: 100%; height: 48px;"
+              class="mt-5"
               @click="login()"
             >
-              {{ authText }}
+              <v-icon class="mr-2">mdi-facebook-box</v-icon>{{ authText }}
             </v-btn>
           </v-flex>
         </form>
@@ -52,18 +86,20 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.$store
-        .dispatch('auth/authenticateUser', {
-          isLogin: this.isLogin,
-          email: this.email,
-          password: this.password,
-        })
-        .then(() => {
-          this.$router.push('/feed');
-        })
-        .catch(e => {
-          console.log(e);
-        });
+      this.$router.push('/offers');
+      return;
+      //   this.$store
+      //     .dispatch('auth/authenticateUser', {
+      //       isLogin: this.isLogin,
+      //       email: this.email,
+      //       password: this.password,
+      //     })
+      //     .then(() => {
+      //       this.$router.push('/feed');
+      //     })
+      //     .catch(e => {
+      //       console.log(e);
+      //     });
     },
     login() {
       this.$router.push('/offers');

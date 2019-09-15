@@ -25,7 +25,6 @@
           color="#F16A34"
           dark
           rounded
-          flat
           style="width: 100%;"
           @click="$router.push('/cnh')"
           >Fazer seguro</v-btn
